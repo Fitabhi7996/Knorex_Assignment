@@ -9,7 +9,7 @@ const WeatherApp = () => {
     setCity(selectedCity);
     
     try {
-      const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${selectedCity}&appid=399da68060f84d10e82f0508fe8bf0f4`);
+      const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${selectedCity}&appid=399da68060f84d10e82f0508fe8bf0f4&units=metric`);
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
@@ -34,9 +34,9 @@ console.log(weatherInfo)
 
       {weatherInfo && (
         <div>
-          <h2>Current Weather:{weatherInfo}</h2>
+           <h2>{city} Weather</h2>
           
-          <p>{weatherInfo.weather}°C</p>
+            <p>Temperature: {weatherInfo.main.temp}°C</p>
 
           {/* Fetch forecast for the next 3 days */}
           
